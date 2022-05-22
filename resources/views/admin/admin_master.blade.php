@@ -30,7 +30,7 @@
 
 {{-- right sidebar --}}
     @include('admin.includes.right-sidebar')
-  
+
 </div>
 <!-- ./wrapper -->
 

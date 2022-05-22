@@ -1,28 +1,25 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Backend\UserController;
 use Illuminate\Support\Facades\Route;
 
 
 // Admin logout route
 Route::get('/admin/logout',[AdminController::class,'Logout'])->name('admin.logout');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get('/', function () {
     return view('auth.login');
 });
+
+// User Management all Route
+Route::prefix('users')->group(function(){
+
+    Route::get('/view',[UserController::class,'UserView'])->name('user.view');
+
+
+
+});
+
 
 Route::middleware([
     'auth:sanctum',
