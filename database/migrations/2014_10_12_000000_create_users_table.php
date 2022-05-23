@@ -17,6 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('user_type')->nullable();
             $table->string('name')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('address')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('image')->nullable();
+            $table->tinyInteger('status')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
