@@ -39,8 +39,8 @@
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
                                                 <td class="d-flex m">
-                                                    <a href="#"class="btn btn-info mr-3 ">Edit</a>
-                                                    <a href="#"class="btn btn-danger">Delete</a>
+                                                    <a href="{{ route('edit.user',['id'=>$user->id]) }}"class="btn btn-info mr-3 ">Edit</a>
+                                                    <a href="{{ route('delete.user',['id'=>$user->id]) }}"class="btn btn-danger" id="delete">Delete</a>
                                                 </td>
                                             </tr>
                                             @endforeach

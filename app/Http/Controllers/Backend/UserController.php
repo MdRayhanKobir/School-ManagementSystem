@@ -39,4 +39,32 @@ class UserController extends Controller
         return redirect()->route('user.view')->with($notification);
 
     }
+
+    public function EditUser($id){
+        $editUser=User::find($id);
+        return view('backend.user.edit_user',compact('editUser'));
+    }
+
+    public function UpdateUser(Request $request,$id){
+        $data=User::find($id);
+        $data->name=$request->name;
+        $data->email=$request->email;
+        $data->user_type=$request->user_type;
+        $data->save();
+        $notification=array(
+            'message'=>'Update Successfuly User',
+            'alert-type'=>'success'
+        );
+        return redirect()->route('user.view')->with($notification);
+    }
+
+    public function DeleteUser($id){
+        $data=User::find($id);
+        $data->delete();
+        $notification=array(
+            'message'=>'Delete Successfuly User',
+            'alert-type'=>'error'
+        );
+        return redirect()->route('user.view')->with($notification);
+    }
 }
