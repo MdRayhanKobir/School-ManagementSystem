@@ -15,8 +15,8 @@
 
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">User List</h3>
-                                <a href="#" class="btn btn-rounded btn-success mb-5" style="float: right">Add User</a>
+                                <h3 class="box-title">User List<img src="{{ asset('backend/images/favcon.ico')}}" alt="" style="width:30px;height:30px;border-radius:50px; margin-left:5px;"></h3>
+                                <a href="{{ route('add.user') }}" class="btn btn-rounded btn-success mb-5" style="float: right">Add User</a>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
@@ -39,7 +39,7 @@
                                                 <td>{{ $user->name }}</td>
                                                 <td>{{ $user->email }}</td>
                                                 <td class="d-flex m">
-                                                    <a href="#"class="btn btn-info mr-3">Edit</a>
+                                                    <a href="#"class="btn btn-info mr-3 ">Edit</a>
                                                     <a href="#"class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
