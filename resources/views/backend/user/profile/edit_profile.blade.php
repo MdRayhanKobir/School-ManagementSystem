@@ -20,7 +20,7 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col">
-                                <form action="" method="post">
+                                <form action="{{ route('update.profile') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
@@ -29,7 +29,7 @@
                                                     <div class="form-group">
                                                         <h5>Name <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="text" name="name" class="form-control">
+                                                            <input type="text" name="name" class="form-control"value="{{ $userdata->name }}">
                                                             @error('name')
                                                                 <div class="alert text-danger">{{ $message }}</div>
                                                             @enderror
@@ -40,7 +40,7 @@
                                                     <div class="form-group">
                                                         <h5>E-mail<span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="email" name="email" class="form-control" >
+                                                            <input type="email" name="email" class="form-control"value="{{ $userdata->email }}" >
                                                             @error('email')
                                                                 <div class="alert text-danger">{{ $message }}</div>
                                                             @enderror
@@ -55,7 +55,7 @@
                                                     <div class="form-group">
                                                         <h5>Mobile <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="number" name="mobile" class="form-control">
+                                                            <input type="number" name="mobile" class="form-control"value="{{ $userdata->mobile }}">
                                                             @error('mobile')
                                                                 <div class="alert text-danger">{{ $message }}</div>
                                                             @enderror
@@ -66,7 +66,7 @@
                                                     <div class="form-group">
                                                         <h5>Address<span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="text" name="address" class="form-control" >
+                                                            <input type="text" name="address" class="form-control"value="{{ $userdata->address }}">
                                                             @error('address')
                                                                 <div class="alert text-danger">{{ $message }}</div>
                                                             @enderror
@@ -81,10 +81,10 @@
                                                     <div class="form-group">
                                                         <div class="controls">
                                                             <h5>Gender <span class="text-danger">*</span></h5>
-                                                            <select name="user_type" id="user_type" class="form-control">
-                                                                <option value="">Select Your Gender</option>
-                                                                <option value="Male">Male</option>
-                                                                <option value="Female">Female</option>
+                                                            <select name="gender" id="gender" class="form-control">
+                                                                <option value="" disabled>Select Your Gender</option>
+                                                                <option value="Male"{{ ($userdata->gender=="Male" ? "selected":"") }}>Male</option>
+                                                                <option value="Female"{{ ($userdata->gender=="Female" ? "selected":"") }}>Female</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -103,7 +103,7 @@
                                                     {{-- old image --}}
                                                     <div class="form-group">
                                                         <div class="controls">
-                                                            <img  src="{{ (!empty($userdata->image)) ?url('upload/user_images'.$userdata->imge):url('upload/no-image.jpg') }}" class="rounded" id="showimage" alt="" style="width: 80px;height:80px;">
+                                                            <img  src="{{ (!empty($userdata->image)) ?url('upload/user_images/'.$userdata->image):url('upload/no-image.jpg') }}" class="rounded" id="showimage" alt="" style="width: 80px;height:80px;">
 
                                                         </div>
                                                     </div>
