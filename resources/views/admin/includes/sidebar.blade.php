@@ -65,29 +65,33 @@ $route = Route::current()->getName();
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{ route('student.class') }}"><i class="ti-more"></i>Student Class</a></li>
+                    <li><a href="{{ route('studentyear.view') }}"><i class="ti-more"></i>Student Year</a></li>
+                    <li><a href="{{ route('studentgroup.view') }}"><i class="ti-more"></i>Student Gourp</a></li>
+                    <li><a href="{{ route('shift.view') }}"><i class="ti-more"></i>Student Shift</a></li>
+                    <li><a href="{{ route('fee_category.view') }}"><i class="ti-more"></i>FeeCategory Name</a></li>
 
-                    </li>
-                </ul>
             </li>
+        </ul>
+        </li>
 
 
 
-            <li class="header nav-small-cap">User Interface</li>
+        <li class="header nav-small-cap">User Interface</li>
 
-            <li class="treeview">
-                <a href="#">
-                    <i data-feather="grid"></i>
-                    <span>Components</span>
-                    <span class="pull-right-container">
-                        <i class="fa fa-angle-right pull-right"></i>
-                    </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="components_alerts.html"><i class="ti-more"></i>Alerts</a></li>
-                    <li><a href="components_badges.html"><i class="ti-more"></i>Badge</a></li>
+        <li class="treeview">
+            <a href="#">
+                <i data-feather="grid"></i>
+                <span>Components</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-right pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="components_alerts.html"><i class="ti-more"></i>Alerts</a></li>
+                <li><a href="components_badges.html"><i class="ti-more"></i>Badge</a></li>
 
-                </ul>
-            </li>
+            </ul>
+        </li>
 
         </ul>
     </section>
