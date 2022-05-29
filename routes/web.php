@@ -84,6 +84,7 @@ Route::prefix('setup')->group(function () {
     // Fee Amount Route
     Route::get('/student/fee/amount',[FeeAmountController::class,'feeAmountView'])->name('feeamount.view');
     Route::get('/student/fee/amount_add',[FeeAmountController::class,'feeAmountAdd'])->name('feeamount.add');
+    Route::post('/student/fee/amount_store',[FeeAmountController::class,'feeAmountStore'])->name('feeamount.store');
 
 });
 
