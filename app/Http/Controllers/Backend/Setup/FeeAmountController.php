@@ -16,8 +16,8 @@ class FeeAmountController extends Controller
     }
 
     public function feeAmountAdd(){
-        $feecategory=FeeCategory::all();
-        $studentclass=StudentClass::all();
-        return view('backend.setup.fee_amount.fee_amount_add',compact('feecategory','studentclass'));
+        $data['fee_categories'] = FeeCategory::all();
+    	$data['classes'] = StudentClass::all();
+        return view('backend.setup.fee_amount.fee_amount_add',$data);
     }
 }
