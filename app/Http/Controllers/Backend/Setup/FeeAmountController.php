@@ -43,4 +43,13 @@ class FeeAmountController extends Controller
         }
 
     }
+
+
+    public function feeAmountEdit($fee_category_id){
+        $feeamount=FeeAmount::where('fee_category_id',$fee_category_id)->orderBy('class_id','asc')->get();
+        $studentclass=StudentClass::all();
+        $feecategory=FeeCategory::all();
+        return view('backend.setup.fee_amount.fee_amount_edit',compact('feeamount','studentclass','feecategory'));
+
+    }
 }

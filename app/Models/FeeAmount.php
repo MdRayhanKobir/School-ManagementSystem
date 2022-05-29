@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class FeeAmount extends Model
 {
     use HasFactory;
+
+    public function feeCategory(){
+        return $this->belongsTo(FeeCategory::class,'fee_category_id','id');
+    }
 }

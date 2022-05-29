@@ -33,10 +33,10 @@
                                             @foreach ($feeamount as $key=>$amount )
                                             <tr>
                                                 <td>{{ $key+1 }}</td>
-                                                <td>{{ $amount->fee_category_id}}</td>
+                                                <td>{{ $amount->feeCategory->feecategory}}</td>
                                                 <td class="d-flex m">
-                                                    <a href=""class="btn btn-info mr-3 ">Edit</a>
-                                                    <a href=""class="btn btn-danger" id="delete">Delete</a>
+                                                    <a href="{{ route('feeamount.edit',['fee_category_id'=>$amount->fee_category_id]) }}"class="btn btn-info mr-3 ">Edit</a>
+                                                    <a href="#"class="btn btn-danger" id="delete">Delete</a>
                                                 </td>
                                             </tr>
                                             @endforeach
