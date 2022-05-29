@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('title')
-    Add_User-view page
+    Add_Fee-Amount-view page
 @endsection
 
 @section('content')
@@ -8,14 +8,12 @@
     <div class="content-wrapper">
         <div class="container-full">
 
-
-
             <section class="content">
 
                 <!-- Basic Forms -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h4 class="box-title">Add User<img src="{{ asset('backend/images/favcon.ico') }}" alt=""
+                        <h4 class="box-title">Add Fee Amount<img src="{{ asset('backend/images/favcon.ico') }}" alt=""
                                 style="width:30px;height:30px;border-radius:50px; margin-left:5px;"></h4>
                         <h2 class="text-white d-flex"></h2>
                     </div>
@@ -23,64 +21,57 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col">
-                                <form action="{{ route('users.store') }}" method="post">
+                                <form action="" method="post">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
-
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-12">
                                                     <div class="form-group">
                                                         <div class="controls">
-                                                            <h5>User Role <span class="text-danger">*</span></h5>
-                                                            <select name="user_type" id="user_type" class="form-control">
-                                                                <option value="">Select user role</option>
-                                                                <option value="Admin">Admin</option>
-                                                                <option value="User">User</option>
+                                                            <h5>Fee category <span class="text-danger">*</span></h5>
+                                                            <select name="fee_category_id[]" id="fee_category" class="form-control">
+                                                                <option value="" disabled>Select Your fee category </option>
+                                                                @foreach ( $feecategory as $feecategory )
+                                                                <option value="{{ $feecategory->id }}">{{ $feecategory->feecategory }}</option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <h5>Name <span class="text-danger">*</span></h5>
-                                                        <div class="controls">
-                                                            <input type="text" name="name" class="form-control">
-                                                            @error('name')
-                                                                <div class="alert text-danger">{{ $message }}</div>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
                                             {{-- end row --}}
                                             <div class="row">
-                                                <div class="col-md-6">
+                                                <div class="col-md-5">
                                                     <div class="form-group">
-                                                        <h5>E-mail<span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="email" name="email" class="form-control">
-                                                            @error('email')
+                                                            <h5>Student Class <span class="text-danger">*</span></h5>
+                                                            <select name="class_id[]" id="fee_category" class="form-control">
+                                                                <option value="" disabled>Select Your class </option>
+                                                                @foreach ( $studentclass as $studentclass )
+                                                                <option value="{{ $studentclass->id }}">{{ $studentclass->class }}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5">
+                                                    <div class="form-group">
+                                                        <h5>Fee Amount <span class="text-danger">*</span></h5>
+                                                        <div class="controls">
+                                                            <input type="text" name="amount[]" class="form-control">
+                                                            @error('amount')
                                                                 <div class="alert text-danger">{{ $message }}</div>
                                                             @enderror
                                                         </div>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-2" style="padding-top:25px;">
+                                                    <span class="btn btn-success adeventmore"><i class="fa fa-plus-circle"></i></span>
 
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <h5>Password<span class="text-danger">*</span></h5>
-                                                        <div class="controls">
-                                                            <input type="password" name="password" class="form-control">
-                                                            @error('password')
-                                                                <div class="alert text-danger">{{ $message }}</div>
-                                                            @enderror
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                             {{-- end row --}}
-
                                         </div>
                                         <div class="text-xs-right">
                                             <input type="submit" class="btn btn-rounded btn-info" value="Submit">
