@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('title')
-    Fee Amount view page
+    Fee Assign_Subject details  page
 @endsection
 
 @section('content')
@@ -15,30 +15,31 @@
 
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Fee Amount List<img src="{{ asset('backend/images/favcon.ico')}}" alt="" style="width:30px;height:30px;border-radius:50px; margin-left:5px;"></h3>
-                                <a href="{{ route('feeamount.add') }}" class="btn btn-rounded btn-success mb-5" style="float: right">Add Fee Amount</a>
+                                <h3 class="box-title">Fee Assign Subject Details<img src="{{ asset('backend/images/favcon.ico')}}" alt="" style="width:30px;height:30px;border-radius:50px; margin-left:5px;"></h3>
+                                <a href="{{ route('feeamount.add') }}" class="btn btn-rounded btn-success mb-5" style="float: right">Add Assign Subject</a>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
+                                <h4>Assign Subject <strong></strong></h4>
                                 <div class="table-responsive">
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <th>Fee Category</th>
-                                                <th style="width:25%">Action</th>
+                                                <th>Subject</th>
+                                                <th style="width:25%">Full Mark</th>
+                                                <th style="width:25%">Pass Mark</th>
+                                                <th style="width:25%">Subjective Mark</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($feeamount as $key=>$amount )
+                                            @foreach ($assignsubject as $key=>$assignsubjectdetails )
                                             <tr>
                                                 <td>{{ $key+1 }}</td>
-                                                <td>{{ $amount->feeCategory->feecategory}}</td>
-                                                <td class="d-flex m">
-                                                    <a href="{{ route('feeamount.edit',['fee_category_id'=>$amount->fee_category_id]) }}"class="btn btn-info mr-3 ">Edit</a>
-                                                    <a href="{{ route('feeamount.delete',['fee_category_id'=>$amount->fee_category_id]) }}"class="btn btn-danger mr-3" id="delete">Delete</a>
-                                                    <a href="{{ route('feeamount.details',['fee_category_id'=>$amount->fee_category_id]) }}"class="btn btn-info">Details</a>
-                                                </td>
+                                                <td>{{ $assignsubjectdetails->studentSubject->school_subject}}</td>
+                                                <td class="">{{ $assignsubjectdetails->full_mark }}</td>
+                                                <td class="">{{ $assignsubjectdetails->pass_mark }}</td>
+                                                <td class="">{{ $assignsubjectdetails->subjective_mark }}</td>
                                             </tr>
                                             @endforeach
                                         </tbody>
