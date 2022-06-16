@@ -33,10 +33,10 @@
                                                     <div class="form-group">
                                                         <div class="controls">
                                                             <h5>User Role <span class="text-danger">*</span></h5>
-                                                            <select name="user_type" id="user_type" class="form-control">
+                                                            <select name="role" id="role" class="form-control">
                                                                 <option value="">Select user role</option>
                                                                 <option value="Admin">Admin</option>
-                                                                <option value="User">User</option>
+                                                                <option value="Operator">Operator</option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -68,7 +68,7 @@
                                                 </div>
 
                                                 <div class="col-md-6">
-                                                    <div class="form-group">
+                                                    {{-- <div class="form-group">
                                                         <h5>Password<span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <input type="password" name="password" class="form-control">
@@ -76,7 +76,7 @@
                                                                 <div class="alert text-danger">{{ $message }}</div>
                                                             @enderror
                                                         </div>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                             </div>
                                             {{-- end row --}}

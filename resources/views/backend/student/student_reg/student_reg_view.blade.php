@@ -1,6 +1,6 @@
 @extends('admin.admin_master')
 @section('title')
-    User-view page
+    Student Registration view page
 @endsection
 
 @section('content')
@@ -15,8 +15,8 @@
 
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="box-title">User List<img src="{{ asset('backend/images/favcon.ico')}}" alt="" style="width:30px;height:30px;border-radius:50px; margin-left:5px;"></h3>
-                                <a href="{{ route('add.user') }}" class="btn btn-rounded btn-success mb-5" style="float: right">Add User</a>
+                                <h3 class="box-title">Student Registration List<img src="{{ asset('backend/images/favcon.ico')}}" alt="" style="width:30px;height:30px;border-radius:50px; margin-left:5px;"></h3>
+                                <a href="{{ route('student.reg.add') }}" class="btn btn-rounded btn-success mb-5" style="float: right">Add Registration</a>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
@@ -25,24 +25,20 @@
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
-                                                <th>Role</th>
                                                 <th>Name</th>
-                                                <th>E-mail</th>
-                                                <th>Code</th>
+                                                <th>Id No</th>
                                                 <th style="width:25%">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($userData as $key=>$user )
+                                            @foreach ($assignStudent as $key=>$value )
                                             <tr>
                                                 <td>{{ $key+1 }}</td>
-                                                <td>{{ $user->role }}</td>
-                                                <td>{{ $user->name }}</td>
-                                                <td>{{ $user->email }}</td>
-                                                <td>{{ $user->code }}</td>
+                                                <td>{{ $value->class_id}}</td>
+                                                <td>{{ $value->year_id}}</td>
                                                 <td class="d-flex m">
-                                                    <a href="{{ route('edit.user',['id'=>$user->id]) }}"class="btn btn-info mr-3 ">Edit</a>
-                                                    <a href="{{ route('delete.user',['id'=>$user->id]) }}"class="btn btn-danger" id="delete">Delete</a>
+                                                    <a href=""class="btn btn-info mr-3 ">Edit</a>
+                                                    <a href=""class="btn btn-danger" id="delete">Delete</a>
                                                 </td>
                                             </tr>
                                             @endforeach
