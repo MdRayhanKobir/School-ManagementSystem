@@ -20,7 +20,7 @@
                     <div class="box-body">
                         <div class="row">
                             <div class="col">
-                                <form action="{{ route('student.reg.store') }}" method="post">
+                                <form action="{{ route('student.reg.store') }}" method="post"enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
@@ -127,8 +127,8 @@
                                                     <div class="form-group">
                                                         <h5>Birth of Date <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="date" name="date" class="form-control" required="">
-                                                            @error('date')
+                                                            <input type="date" name="dob" class="form-control" required="">
+                                                            @error('dob')
                                                                 <div class="alert text-danger">{{ $message }}</div>
                                                             @enderror
                                                         </div>
@@ -234,7 +234,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <div class="controls">
-                                                            <img  src="{{ url('upload/no-image.jpg') }}" class="rounded" id="showimage" alt="" style="width: 80px;height:80px;">
+                                                            <img  src="{{ (!empty($user ->image)) ?url('upload/student_images/'.$user->image):url('upload/no-image.jpg') }}" class="rounded" id="showimage" alt="" style="width: 80px;height:80px;">
 
                                                         </div>
                                                     </div>
