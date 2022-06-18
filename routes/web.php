@@ -141,6 +141,19 @@ Route::prefix('students')->group(function () {
     Route::get('/registration/view',[StudentRegController::class,'StudentRegView'])->name('student.reg.view');
     Route::get('/registration/add',[StudentRegController::class,'StudentRegAdd'])->name('student.reg.add');
     Route::post('/registration/store',[StudentRegController::class,'StudentRegStore'])->name('student.reg.store');
+    Route::get('/registration/edit/{student_id}',[StudentRegController::class,'StudentRegEdit'])->name('student.registration.edit');
+    Route::post('/registration/update/{student_id}',[StudentRegController::class,'StudentRegUpdate'])->name('student.registration.update');
+
+    // student class year wise search rooute
+    Route::get('student/class/year/wise',[StudentRegController::class,'StudentClassYearWise'])->name('student.class_year.wise');
+
+    // student promotion route
+    Route::get('/registration/promotion/{student_id}',[StudentRegController::class,'StudentPromotion'])->name('student.registration.promotion');
+    Route::post('/registration/promotion/update/{student_id}',[StudentRegController::class,'StudentPromotionUpdate'])->name('student.promotion');
+    Route::get('/registration/promotion/details/{student_id}',[StudentRegController::class,'StudentDetails'])->name('student.registration.details');
+
+
+
 
 
 

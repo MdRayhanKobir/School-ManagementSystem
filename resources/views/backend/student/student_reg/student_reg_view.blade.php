@@ -14,10 +14,10 @@
                     <div class="col-md-12">
                     <div class="box box-solid " style="background: rgba(52, 172, 224,0.6)!important">
                         <div class="box-header">
-                          <h4 class="box-title"><strong>Search</strong></h4>
+                          <h4 class="box-title"><strong>Student Search</strong></h4>
                         </div>
                         <div class="box-body">
-                            <form action="">
+                            <form action="{{ route('student.class_year.wise') }}" method="GET">
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
                             </form>
-                         
+
                         </div>
                       </div>
                     </div>
@@ -71,11 +71,13 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="table-responsive">
+                                    @if (!@search)
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>SL</th>
                                                 <th>Name</th>
+                                                <th>Id No</th>
                                                 <th>Roll</th>
                                                 <th>Class</th>
                                                 <th>Year</th>
@@ -91,20 +93,63 @@
                                             <tr>
                                                 <td>{{ $key+1 }}</td>
                                                 <td>{{ $value->student->name}}</td>
+                                                <td>{{ $value->student->id_no}}</td>
                                                 <td>{{ $value->roll }}</td>
                                                 <td>{{ $value->student_class->class}}</td>
                                                 <td>{{ $value->student_year->year}}</td>
                                                 <td><img src="{{ (!empty($value->student->image)) ?url('upload/student_images/'.$value->student->image):url('upload/no-image.jpg') }}" class="rounded" id="showimage" alt="" style="width: 50px;height:50px;"></td>
                                                 <td>{{ $value->student->code}}</td>
                                                 <td class="d-flex m">
-                                                    <a href=""class="btn btn-info mr-3 ">Edit</a>
-                                                    <a href=""class="btn btn-danger" id="delete">Delete</a>
+                                                    <a title="Edit" href="{{ route('student.registration.edit',$value->student_id) }}"class="btn btn-info mr-3 "><i class="fa fa-edit"></i></a>
+                                                    <a title="Promotion" href="{{ route('student.registration.promotion',$value->student_id) }}"class="btn btn-danger mr-3"><i class="fa fa-check"></i></a>
+                                                    <a target="_blank" title="Details" href="{{ route('student.registration.details',$value->student_id) }}"class="btn btn-secondary"><i class="fa fa-eye"></i></a>
                                                 </td>
                                             </tr>
                                             @endforeach
                                         </tbody>
 
                                     </table>
+                                    @else
+                                    <table id="example1" class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>SL</th>
+                                                <th>Name</th>
+                                                <th>Id No</th>
+                                                <th>Roll</th>
+                                                <th>Class</th>
+                                                <th>Year</th>
+                                                <th>Image</th>
+                                                @if (Auth::user()->role=="Admin")
+                                                <th>Code</th>
+                                                @endif
+                                                <th style="width:25%">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($assignStudent as $key=>$value )
+                                            <tr>
+                                                <td>{{ $key+1 }}</td>
+                                                <td>{{ $value->student->name}}</td>
+                                                <td>{{ $value->student->id_no}}</td>
+                                                <td>{{ $value->roll }}</td>
+                                                <td>{{ $value->student_class->class}}</td>
+                                                <td>{{ $value->student_year->year}}</td>
+                                                <td><img src="{{ (!empty($value->student->image)) ?url('upload/student_images/'.$value->student->image):url('upload/no-image.jpg') }}" class="rounded" id="showimage" alt="" style="width: 50px;height:50px;"></td>
+                                                <td>{{ $value->student->code}}</td>
+                                                <td class="d-flex m">
+                                                    <a title="Edit" href="{{ route('student.registration.edit',$value->student_id) }}"class="btn btn-info mr-3 "><i class="fa fa-edit"></i></a>
+                                                    <a  title="Promotion" href="{{ route('student.registration.promotion',$value->student_id) }}"class="btn btn-danger mr-3"><i class="fa fa-check"></i></a>
+                                                    <a target="_blank"  title="Detailas" href="{{ route('student.registration.details',$value->student_id) }}"class="btn btn-secondary"><i class="fa fa-eye"></i></a>
+
+                                                </td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+
+                                    </table>
+
+                                    @endif
                                 </div>
                             </div>
                             <!-- /.box-body -->
