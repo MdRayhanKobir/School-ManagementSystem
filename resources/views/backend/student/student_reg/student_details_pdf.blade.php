@@ -96,11 +96,16 @@ tr:nth-child(even) {
   </tr>
   <tr>
     <td>13</td>
+    <td>Roll </td>
+    <td>{{ $student_details['roll'] }}</td>
+  </tr>
+  <tr>
+    <td>14</td>
     <td>Group </td>
     <td>{{ $student_details['group']['student_group'] }}</td>
   </tr>
   <tr>
-    <td>14</td>
+    <td>15</td>
     <td>Shift </td>
     <td>{{ $student_details['shift']['shift'] }}</td>
   </tr>
